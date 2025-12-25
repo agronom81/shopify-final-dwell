@@ -11,36 +11,6 @@
   "type": "header",
   "name": "Header",
   "sections": {
-    "header_announcements_pbXTDf": {
-      "type": "header-announcements",
-      "blocks": {
-        "announcement_KMAGKG": {
-          "type": "_announcement",
-          "settings": {
-            "text": "Shop the bedroom event - on now!",
-            "link": "shopify://collections/all",
-            "font": "var(--font-accent--family)",
-            "font_size": "0.75rem",
-            "weight": "",
-            "letter_spacing": "loose",
-            "case": "uppercase"
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "announcement_KMAGKG"
-      ],
-      "name": "t:names.announcement_bar",
-      "settings": {
-        "speed": 5,
-        "section_width": "full-width",
-        "color_scheme": "scheme-2",
-        "divider_width": 0,
-        "padding-block-start": 15,
-        "padding-block-end": 15
-      }
-    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -112,7 +82,6 @@
     }
   },
   "order": [
-    "header_announcements_pbXTDf",
     "header_section"
   ]
 }
