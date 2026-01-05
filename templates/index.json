@@ -1941,8 +1941,8 @@
           "type": "group",
           "name": "t:names.group",
           "settings": {
-            "layout_type": "flex",
-            "grid_type": "type1",
+            "layout_type": "grid",
+            "grid_type": "type5",
             "content_direction": "row",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
