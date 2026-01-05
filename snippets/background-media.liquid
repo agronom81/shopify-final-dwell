@@ -6,6 +6,7 @@
   @param {string} [background_video_position] - The background video position
   @param {object} [background_image] - The background image
   @param {string} [background_image_position] - The background image position
+  @param {string} [background_image_section_position] - The background image position
   @param {string} [placeholder] - The placeholder
   @param {object} [block] - The block object
   @param {object} [section] - The section object
@@ -60,7 +61,7 @@
   {%- endif -%}
 {% elsif background_media == 'image' %}
   <div
-    class="background-image-container{% if background_image_position == 'fit' %} background-image-fit{% endif %}"
+    class="background-image-container{% if background_image_position == 'fit' %} background-image-fit{% endif %} background-image-section-position-{{ background_image_section_position }}"
   >
     {% liquid
       # Define sizes based on page width setting whether this is called from a section or block

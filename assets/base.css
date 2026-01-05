@@ -731,6 +731,20 @@ p:empty {
   object-fit: contain;
 }
 
+.background-image-section-position-right img {
+  position: absolute;
+  right: 0;
+  left: auto;
+  width: auto;
+}
+
+.background-image-section-position-left img {
+  position: absolute;
+  left: 0;
+  right: auto;
+  width: auto;
+}
+
 .svg-wrapper {
   color: currentcolor;
   display: inline-flex;
