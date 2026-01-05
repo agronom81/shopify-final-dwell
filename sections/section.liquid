@@ -300,6 +300,27 @@
     },
     {
       "type": "select",
+      "id": "background_image_section_position",
+      "label": "Image Section Position",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "auto",
+      "visible_if": "{{ section.settings.background_media == 'image' }}"
+    },
+    {
+      "type": "select",
       "id": "border",
       "label": "t:settings.borders",
       "options": [

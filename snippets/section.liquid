@@ -29,6 +29,9 @@
   "
 >
   <div class="custom-section-background">
+    {% if section.settings.toggle_overlay %}
+      {% render 'overlay', settings: section.settings, layer: '0' %}
+    {% endif %}
     {% render 'background-media',
       background_media: section.settings.background_media,
       background_video: section.settings.video,
@@ -42,9 +45,11 @@
     class="border-style custom-section-content"
     style="{% render 'border-override', settings: section.settings %}"
   >
-    {% if section.settings.toggle_overlay %}
-      {% render 'overlay', settings: section.settings, layer: '0' %}
-    {% endif %}
+    {% comment %}
+      {% if section.settings.toggle_overlay %}
+        {% render 'overlay', settings: section.settings, layer: '0' %}
+      {% endif %}
+    {% endcomment %}
 
     <div
       class="
