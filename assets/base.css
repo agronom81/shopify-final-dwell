@@ -731,18 +731,22 @@ p:empty {
   object-fit: contain;
 }
 
-.background-image-section-position-right img {
+.background-image-section-position-right img, 
+.background-image-section-position-left img {
   position: absolute;
+  width: auto;
+  top: 0;
+  bottom: 0;
+}
+
+.background-image-section-position-right img {
   right: 0;
   left: auto;
-  width: auto;
 }
 
 .background-image-section-position-left img {
-  position: absolute;
   left: 0;
   right: auto;
-  width: auto;
 }
 
 .svg-wrapper {
