@@ -1588,9 +1588,11 @@ summary:hover {
 
 summary .svg-wrapper {
   margin-inline-start: auto;
-  height: var(--icon-size-xs);
-  width: var(--icon-size-xs);
+  height: var(--icon-size-sm);
+  width: var(--icon-size-sm);
   transition: transform var(--animation-speed) var(--animation-easing);
+  background: white;
+  border-radius: 100%;
 }
 
 /* Shared plus/minus icon animations */
