@@ -18,6 +18,8 @@
           "type": "group",
           "name": "t:names.group",
           "settings": {
+            "layout_type": "flex",
+            "grid_type": "type3",
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -84,6 +86,8 @@
           "type": "group",
           "name": "t:names.group",
           "settings": {
+            "layout_type": "flex",
+            "grid_type": "type3",
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -150,6 +154,8 @@
           "type": "group",
           "name": "t:names.group",
           "settings": {
+            "layout_type": "flex",
+            "grid_type": "type3",
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -216,6 +222,8 @@
           "type": "group",
           "name": "t:names.group",
           "settings": {
+            "layout_type": "flex",
+            "grid_type": "type3",
             "content_direction": "column",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
@@ -298,20 +306,6 @@
         "padding-block-end": 100
       }
     },
-    "divider_ke4zKR": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 32,
-        "padding-block-end": 32
-      }
-    },
     "section_QYjq4E": {
       "type": "section",
       "blocks": {
@@ -387,22 +381,22 @@
         "background_media": "none",
         "video_position": "cover",
         "background_image_position": "cover",
-        "border": "none",
+        "background_image_section_position": "auto",
+        "border": "solid",
         "border_width": 1,
         "border_opacity": 100,
         "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
+        "toggle_overlay": true,
+        "overlay_color": "#f8f9fa",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
+        "padding-block-start": 32,
         "padding-block-end": 32
       }
     }
   },
   "order": [
     "footer",
-    "divider_ke4zKR",
     "section_QYjq4E"
   ]
 }
