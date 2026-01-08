@@ -145,7 +145,7 @@
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 12,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -171,7 +171,7 @@
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 20,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -197,7 +197,7 @@
                 "background_color": "#00000026",
                 "corner_radius": 0,
                 "padding-block-start": 0,
-                "padding-block-end": 0,
+                "padding-block-end": 32,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
               },
@@ -1089,8 +1089,8 @@
             "link": "",
             "open_in_new_tab": false,
             "placeholder": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
+            "padding-block-start": 90,
+            "padding-block-end": 90,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -1174,7 +1174,7 @@
                     "open_in_new_tab": false,
                     "placeholder": "",
                     "padding-block-start": 0,
-                    "padding-block-end": 0,
+                    "padding-block-end": 48,
                     "padding-inline-start": 0,
                     "padding-inline-end": 0
                   },
@@ -1199,7 +1199,7 @@
                         "background_color": "#00000026",
                         "corner_radius": 0,
                         "padding-block-start": 0,
-                        "padding-block-end": 0,
+                        "padding-block-end": 16,
                         "padding-inline-start": 0,
                         "padding-inline-end": 0
                       },
@@ -1246,7 +1246,7 @@
                     "content_direction": "row",
                     "vertical_on_mobile": true,
                     "horizontal_alignment": "flex-start",
-                    "vertical_alignment": "center",
+                    "vertical_alignment": "flex-start",
                     "align_baseline": false,
                     "horizontal_alignment_flex_direction_column": "flex-start",
                     "vertical_alignment_flex_direction_column": "center",
@@ -1341,7 +1341,7 @@
                             "background_color": "#00000026",
                             "corner_radius": 0,
                             "padding-block-start": 0,
-                            "padding-block-end": 0,
+                            "padding-block-end": 16,
                             "padding-inline-start": 0,
                             "padding-inline-end": 0
                           },
@@ -1441,7 +1441,7 @@
                             "background_color": "#00000026",
                             "corner_radius": 0,
                             "padding-block-start": 0,
-                            "padding-block-end": 0,
+                            "padding-block-end": 16,
                             "padding-inline-start": 0,
                             "padding-inline-end": 0
                           },
@@ -1571,22 +1571,8 @@
         "overlay_color": "#f7f0e7",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 40,
-        "padding-block-end": 40
-      }
-    },
-    "divider_9nxXRE": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 0.5,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 50,
-        "padding-block-end": 50
+        "padding-block-start": 100,
+        "padding-block-end": 100
       }
     },
     "product_list_x6BjwP": {
@@ -1764,22 +1750,8 @@
         "horizontal_alignment": "center",
         "gap": 28,
         "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
-      }
-    },
-    "divider_4PkLpy": {
-      "type": "divider",
-      "name": "t:names.divider_section",
-      "settings": {
-        "color_scheme": "",
-        "section_width": "full-width",
-        "thickness": 1,
-        "corner_radius": "square",
-        "width_percent": 100,
-        "alignment_horizontal": "center",
-        "padding-block-start": 50,
-        "padding-block-end": 50
+        "padding-block-start": 100,
+        "padding-block-end": 100
       }
     },
     "section_jbxDGN": {
@@ -2071,8 +2043,8 @@
         "overlay_color": "#f8f9fa",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 100,
+        "padding-block-end": 100
       }
     },
     "section_d9rdFN": {
@@ -2507,7 +2479,7 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 50,
+        "padding-block-start": 100,
         "padding-block-end": 100
       }
     }
@@ -2516,9 +2488,7 @@
     "hero_G7CAX9",
     "section_Q7MMtj",
     "section_DLa8tL",
-    "divider_9nxXRE",
     "product_list_x6BjwP",
-    "divider_4PkLpy",
     "section_jbxDGN",
     "section_d9rdFN"
   ]
