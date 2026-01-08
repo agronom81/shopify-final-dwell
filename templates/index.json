@@ -1790,10 +1790,11 @@
           "name": "t:names.accordion",
           "settings": {
             "icon": "caret",
-            "dividers": false,
+            "dividers": true,
             "type_preset": "h4",
             "inherit_color_scheme": true,
             "color_scheme": "",
+            "overlay_color": "#eceeef",
             "border": "solid",
             "border_width": 0,
             "border_opacity": 100,

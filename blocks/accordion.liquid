@@ -11,6 +11,8 @@
      --accordion-padding-inline-start: {{ block_settings.padding-inline-start }}px;
      --accordion-padding-inline-end: {{ block_settings.padding-inline-end }}px;
      --accordion-row-background: {{ block_settings.overlay_color }};
+     --style-border-width: {{ block_settings.divider_height }}px;
+     --color-border: {{ block_settings.divider_color }};
     {% render 'spacing-style-accordion', settings: block_settings %}
     {% render 'border-override', settings: block_settings %}
   "
@@ -40,13 +42,13 @@
     --show-fallback-borders: 1;
   }
 
-  .accordion--dividers accordion-custom:first-child .details {
+  /* .accordion--dividers accordion-custom:first-child .details {
     border-block-start: calc(var(--style-border-width) * var(--show-fallback-borders)) solid var(--color-border);
-  }
+  } */
 
-  .accordion--dividers accordion-custom:last-child .details {
+  /* .accordion--dividers accordion-custom:last-child .details {
     border-block-end: calc(var(--style-border-width) * var(--show-fallback-borders)) solid var(--color-border);
-  }
+  } */
 
   .accordion--dividers .details-content {
     padding-block-end: var(--padding-sm);
@@ -101,6 +103,25 @@
       "id": "dividers",
       "label": "t:settings.dividers",
       "default": true
+    },
+    {
+      "type": "range",
+      "id": "divider_height",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Divider height",
+      "default": 1,
+      "visible_if": "{{ block.settings.dividers == true }}"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "alpha": true,
+      "default": "#00000026",
+      "visible_if": "{{ block.settings.dividers == true }}"
     },
     {
       "type": "select",
