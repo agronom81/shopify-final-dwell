@@ -11,8 +11,23 @@
   {% endif %}
   {%- form 'customer', class: 'email-signup__form spacing-style' %}
     <div
-      class="email-signup__input-group {% if block_settings.integrated_button and block_settings.border_style != 'underline' %}email-signup__input-group--integrated{% endif %} {% if block_settings.border_style == 'underline' %}email-signup__input-group--underline{% endif %} {% if block_settings.border_style == 'none' %}email-signup__input-group--no-border{% endif %} {% if block_settings.display_type == 'arrow' %}email-signup__input-group--arrow{% endif %} {% if block_settings.inherit_color_scheme == false %}color-{{ block_settings.color_scheme }}{% endif %}"
-      style="--border-width: {{ block_settings.border_width }}px; --border-radius: {{ block_settings.border_radius }}px;"
+      class="
+        email-signup__input-group
+        {% if block_settings.integrated_button and block_settings.border_style != 'underline' %}email-signup__input-group--integrated{% endif %}
+        {% if block_settings.border_style == 'underline' %}email-signup__input-group--underline{% endif %}
+        {% if block_settings.border_style == 'none' %}email-signup__input-group--no-border{% endif %}
+        {% if block_settings.display_type == 'arrow' %}email-signup__input-group--arrow{% endif %}
+        {% if block_settings.inherit_color_scheme == false %}color-{{ block_settings.color_scheme }}{% endif %}
+        layout-panel-flex
+        layout-panel-flex--{{ block_settings.content_direction }}
+        email-signup-direction--{{ block_settings.content_direction }}
+        {% if block_settings.vertical_on_mobile %}mobile-column{% endif %}
+      "
+      style="
+        --border-width: {{ block_settings.border_width }}px;
+        --border-radius: {{ block_settings.border_radius }}px;
+        --email-signup-gap: {{ block_settings.gap }}px;
+      "
     >
       <label
         for="EmailInput-{{ block.id }}"
@@ -96,6 +111,11 @@
 </div>
 
 {% stylesheet %}
+  .email-signup-direction--column .email-signup__input,
+  .email-signup-direction--column .email-signup__button {
+    width: 100%;
+  }
+
   .email-signup-block {
     --arrow-button-size: 58px;
     --arrow-button-size-integrated: 42px;
@@ -127,7 +147,7 @@
   }
 
   .email-signup__input-group:not(.email-signup__input-group--integrated):not(.email-signup__input-group--underline) {
-    gap: var(--gap-xs);
+    gap: var(--email-signup-gap);
     align-items: center;
   }
 
