@@ -1,7 +1,12 @@
 {% assign block_settings = block.settings %}
 <div
   class="email-signup-block size-style spacing-style"
-  style="{% render 'size-style', settings: block_settings %}{% render 'spacing-style', settings: block_settings %}"
+  style="
+    {% render 'size-style', settings: block_settings %}
+    {% render 'spacing-style', settings: block_settings %}
+     --email-signup-heading-end: {{ block_settings.heading-block-end }}px;
+     --email-signup-heading-start: {{ block_settings.heading-block-start }}px;
+  "
   {{ block.shopify_attributes }}
 >
   {% if block_settings.heading != blank %}
@@ -146,7 +151,8 @@
   }
 
   .email-signup__heading {
-    padding-block: var(--padding-sm);
+    padding-top: var(--email-signup-heading-start);
+    padding-bottom: var(--email-signup-heading-end);
   }
 
   .email-signup__form {
@@ -530,6 +536,16 @@
       ],
       "default": "h3",
       "info": "t:info.edit_presets_in_theme_settings"
+    },
+    {
+      "type": "range",
+      "id": "heading-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
     },
     {
       "type": "range",
