@@ -111,6 +111,20 @@
 </div>
 
 {% stylesheet %}
+  .email-signup-block .layout-panel-flex--row {
+    flex-direction: row;
+  }
+
+  .email-signup-block .layout-panel-flex--row.mobile-column {
+    flex-direction: column;
+  }
+
+  @media (min-width: 750px) {
+    .email-signup-block .layout-panel-flex--row.mobile-column {
+      flex-direction: row;
+    }
+  }
+
   .email-signup-direction--column .email-signup__input,
   .email-signup-direction--column .email-signup__button {
     width: 100%;
