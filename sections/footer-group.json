@@ -302,6 +302,10 @@
         "section_width": "page-width",
         "gap": 12,
         "color_scheme": "scheme-1",
+        "toggle_overlay": true,
+        "overlay_color": "#f8f9fa",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
         "padding-block-start": 100,
         "padding-block-end": 100
       }
@@ -383,6 +387,7 @@
         "background_image_position": "cover",
         "background_image_section_position": "auto",
         "border": "solid",
+        "border_side": "top",
         "border_width": 1,
         "border_opacity": 100,
         "border_radius": 0,
