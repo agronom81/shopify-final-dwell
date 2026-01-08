@@ -1,6 +1,7 @@
 {% assign block_settings = block.settings %}
 
 <accordion-custom
+  class="accordion-custom"
   {% if block_settings.open_by_default %}
     open-by-default-on-desktop
     open-by-default-on-mobile
@@ -9,6 +10,11 @@
   <details
     class="details"
     data-testid="accordion-details"
+    style="
+      padding-inline-start: var(--accordion-padding-inline-start, 0px);
+      padding-inline-end: var(--accordion-padding-inline-end, 0px);
+      background: var(--accordion-row-background, red);
+    "
     {% if block_settings.open_by_default %}
       open
     {% endif %}
@@ -330,50 +336,6 @@
       "step": 2,
       "unit": "px",
       "default": 20
-    },
-    {
-      "type": "header",
-      "content": "t:content.padding"
-    },
-    {
-      "type": "range",
-      "id": "padding-block-start",
-      "label": "t:settings.top",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "padding-block-end",
-      "label": "t:settings.bottom",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "padding-inline-start",
-      "label": "t:settings.left",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "padding-inline-end",
-      "label": "t:settings.right",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 0
     }
   ],
   "presets": [
