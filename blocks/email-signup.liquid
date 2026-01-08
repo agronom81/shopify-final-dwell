@@ -26,7 +26,6 @@
         layout-panel-flex
         layout-panel-flex--{{ block_settings.content_direction }}
         email-signup-direction--{{ block_settings.content_direction }}
-        {% if block_settings.vertical_on_mobile %}mobile-column{% endif %}
       "
       style="
         --border-width: {{ block_settings.border_width }}px;
@@ -118,16 +117,6 @@
 {% stylesheet %}
   .email-signup-block .layout-panel-flex--row {
     flex-direction: row;
-  }
-
-  .email-signup-block .layout-panel-flex--row.mobile-column {
-    flex-direction: column;
-  }
-
-  @media (min-width: 750px) {
-    .email-signup-block .layout-panel-flex--row.mobile-column {
-      flex-direction: row;
-    }
   }
 
   .email-signup-direction--column .email-signup__input,
@@ -469,13 +458,6 @@
         }
       ],
       "default": "row"
-    },
-    {
-      "type": "checkbox",
-      "id": "vertical_on_mobile",
-      "label": "t:settings.vertical_on_mobile",
-      "default": true,
-      "visible_if": "{{ block.settings.content_direction == 'row' }}"
     },
     {
       "type": "range",
