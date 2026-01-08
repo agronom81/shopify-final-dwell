@@ -457,7 +457,7 @@ p:empty {
 }
 
 /* Make the actual section background transparent, and instead apply it to a separate sibling element to enable stacking with hero shadow  */
-.shopify-section:not(.header-section) :is(.section, .cart__summary-container) {
+.shopify-section:not(.header-section) :is(.section:not(.section-true-footer), .cart__summary-container) {
   background: transparent;
 }
 
@@ -2389,6 +2389,26 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   border-color: var(--border-color);
   border-radius: var(--border-radius);
 }
+
+.border-style--top, 
+.border-style--bottom {
+  border: none;
+}
+
+.border-style--top {
+  border-top-width: var(--border-width);
+  border-top-style: var(--border-style);
+  border-top-color: var(--border-color);
+  border-top-left-radius: var(--border-radius);
+}
+
+.border-style--bottom {
+  border-bottom-width: var(--border-width);
+  border-bottom-style: var(--border-style);
+  border-bottom-color: var(--border-color);
+  border-bottom-left-radius: var(--border-radius);
+}
+
 
 /* Gap scaling style */
 .gap-style,

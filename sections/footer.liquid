@@ -1,6 +1,12 @@
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
 <div
-  class="section section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  class="section section-{{ section.settings.toggle_overlay }}-footer section-{{ section.settings.toggle_overlay }}-footer--{{ section.settings.overlay_style | default: 'gradient' }} section--{{ section.settings.section_width }} color-{{ section.settings.color_scheme }}"
+  style="
+    --overlay-color: {{ section.settings.overlay_color | default: 'rgb(0 0 0 / var(--opacity-25))' }};
+    --overlay-color--end: {{ section.settings.overlay_color | color_modify: 'alpha', 0 | default: 'rgb(0 0 0 / 0)' }};
+    --overlay-direction: {{ section.settings.gradient_direction | default: 'to top' }};
+    {%- if section.settings.border_radius %} --overlay-border-radius: {{ section.settings.border_radius | default: '0' }}px;{% endif -%}
+  "
 >
   {% liquid
     assign total_blocks = section.blocks.size
@@ -51,6 +57,18 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--footer-gap);
+  }
+
+  .section-true-footer {
+    border-radius: var(--overlay-border-radius, 0);
+  }
+
+  .section-true-footer--solid {
+    background: var(--overlay-color);
+  }
+
+  .section-true-footer--gradient {
+    background: linear-gradient(var(--overlay-direction), var(--overlay-color), var(--overlay-color--end));
   }
 
   @media screen and (min-width: 750px) and (max-width: 989px) {
