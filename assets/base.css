@@ -770,8 +770,8 @@ p:empty {
 }
 
 .svg-wrapper > svg {
-  width: var(--icon-size-sm);
-  height: var(--icon-size-sm);
+  width: var(--icon-size-xs);
+  height: var(--icon-size-xs);
 }
 
 .relative {
