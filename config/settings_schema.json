@@ -396,10 +396,6 @@
         "label": "t:options.subheading",
         "options": [
           {
-            "value": "none",
-            "label": "None"
-          },
-          {
             "value": "lexend-light",
             "label": "Lexend Light"
           },
@@ -408,7 +404,7 @@
             "label": "Lexend Semibold"
           }
         ],
-        "default": "none",
+        "default": "lexend-light",
         "info": "Override Shopify font with custom font",
         "visible_if": "{{ settings.use_custom_fonts == true }}"
       },
@@ -425,10 +421,6 @@
         "label": "t:options.heading",
         "options": [
           {
-            "value": "none",
-            "label": "None"
-          },
-          {
             "value": "lexend-light",
             "label": "Lexend Light"
           },
@@ -437,7 +429,7 @@
             "label": "Lexend Semibold"
           }
         ],
-        "default": "none",
+        "default": "lexend-light",
         "info": "Override Shopify font with custom font",
         "visible_if": "{{ settings.use_custom_fonts == true }}"
       },
@@ -454,10 +446,6 @@
         "label": "t:options.accent",
         "options": [
           {
-            "value": "none",
-            "label": "None"
-          },
-          {
             "value": "lexend-light",
             "label": "Lexend Light"
           },
@@ -466,7 +454,7 @@
             "label": "Lexend Semibold"
           }
         ],
-        "default": "none",
+        "default": "lexend-light",
         "info": "Override Shopify font with custom font",
         "visible_if": "{{ settings.use_custom_fonts == true }}"
       },
