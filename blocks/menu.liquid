@@ -9,6 +9,22 @@
   endif
 %}
 
+{% if block_settings.link_preset == 'custom' %}
+  {% assign menu_details_font_family = block_settings.font %}
+  {% assign menu_details_font_style = block_settings.line_height %}
+  {% assign menu_details_font_weight = block_settings.font_weight %}
+  {% assign menu_details_font_size = block_settings.font_size %}
+  {% assign menu_details_font_line_height = block_settings.line_height %}
+  {% assign menu_details_font_case = block_settings.case %}
+{% else %}
+  {% capture menu_details_font_family %}var(--font-{{ block_settings.link_preset }}--family){% endcapture %}
+  {% capture menu_details_font_style %}var(--font-{{ block_settings.link_preset }}--style){% endcapture %}
+  {% capture menu_details_font_weight %}var(--font-{{ block_settings.link_preset }}--weight){% endcapture %}
+  {% capture menu_details_font_size %}var(--font-{{ block_settings.link_preset }}--size){% endcapture %}
+  {% capture menu_details_font_line_height %}var(--font-{{ block_settings.link_preset }}--line-height){% endcapture %}
+  {% capture menu_details_font_case %}var(--font-{{ block_settings.link_preset }}--case){% endcapture %}
+{% endif %}
+
 {% if menu != blank or heading != blank %}
   <accordion-custom
     class="
@@ -31,8 +47,14 @@
       "
       data-testid="menu-details"
       style="
-        --spacing--size: {{ block_settings.menu_spacing }}px;
-        {% render 'spacing-style', settings: block_settings %}
+         --menu-details-font-family: {{ menu_details_font_family }};
+        --menu-details-font-style: {{ menu_details_font_style }};
+        --menu-details-font-weight: {{ menu_details_font_weight }};
+        --menu-details-font-size: {{ menu_details_font_size }};
+        --menu-details-font-line-height: {{ menu_details_font_line_height }};
+        --menu-details-font-case: {{ menu_details_font_case }};
+           --spacing--size: {{ block_settings.menu_spacing }}px;
+           {% render 'spacing-style', settings: block_settings %}
       "
       {% if show_as_accordion == false %}
         open
@@ -92,6 +114,15 @@
 
   .menu__heading__accordion {
     display: none;
+  }
+
+  .menu__details .menu__item.custom {
+    font-family: var(--menu-details-font-family);
+    font-style: var(--menu-details-font-style);
+    font-weight: var(--menu-details-font-weight);
+    font-size: var(--menu-details-font-size);
+    line-height: var(--menu-details-font-line-height);
+    text-transform: var(--menu-details-font-case);
   }
 
   @media screen and (max-width: 749px) {
