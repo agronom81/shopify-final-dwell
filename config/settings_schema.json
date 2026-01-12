@@ -381,6 +381,10 @@
           {
             "value": "600",
             "label": "Lexend Semibold"
+          },
+          {
+            "value": "700",
+            "label": "Lexend Bold"
           }
         ],
         "default": "400",
@@ -410,6 +414,10 @@
           {
             "value": "600",
             "label": "Lexend Semibold"
+          },
+          {
+            "value": "700",
+            "label": "Lexend Bold"
           }
         ],
         "default": "400",
@@ -439,6 +447,10 @@
           {
             "value": "600",
             "label": "Lexend Semibold"
+          },
+          {
+            "value": "700",
+            "label": "Lexend Bold"
           }
         ],
         "default": "400",
@@ -468,6 +480,10 @@
           {
             "value": "600",
             "label": "Lexend Semibold"
+          },
+          {
+            "value": "700",
+            "label": "Lexend Bold"
           }
         ],
         "default": "400",
