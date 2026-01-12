@@ -292,7 +292,7 @@
                 "border_style": "all",
                 "border_width": 1,
                 "border_radius": 3,
-                "input_type_preset": "paragraph",
+                "input_type_preset": "",
                 "style_class": "button",
                 "display_type": "text",
                 "label": "Sign up",
