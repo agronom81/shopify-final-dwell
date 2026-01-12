@@ -128,11 +128,7 @@
       assign type_body_font_family = 'Lexend'
       assign type_body_font_fallback_families = 'serif'
       assign type_body_font_style = 'normal'
-      if settings.type_body_font_custom == 'lexend-light'
-        assign type_body_font_weight = 300
-      else
-        assign type_body_font_weight = 600
-      endif
+      assign type_body_font_weight = settings.type_body_font_custom
     else
       assign type_body_font_family = settings.type_body_font.family
       assign type_body_font_fallback_families = settings.type_body_font.fallback_families
@@ -144,11 +140,7 @@
       assign type_subheading_font_family = 'Lexend'
       assign type_subheading_font_fallback_families = 'serif'
       assign type_subheading_font_style = 'normal'
-      if settings.type_subheading_font_custom == 'lexend-light'
-        assign type_subheading_font_weight = 300
-      else
-        assign type_subheading_font_weight = 600
-      endif
+      assign type_subheading_font_weight = settings.type_subheading_font_custom
     else
       assign type_subheading_font_family = settings.type_subheading_font.family
       assign type_subheading_font_fallback_families = settings.type_subheading_font.fallback_families
@@ -160,11 +152,8 @@
       assign type_heading_font_family = 'Lexend'
       assign type_heading_font_fallback_families = 'serif'
       assign type_heading_font_style = 'normal'
-      if settings.type_heading_font_custom == 'lexend-light'
-        assign type_heading_font_weight = 300
-      else
-        assign type_heading_font_weight = 600
-      endif
+      assign type_heading_font_weight = settings.type_heading_font_custom
+
     else
       assign type_heading_font_family = settings.type_heading_font.family
       assign type_heading_font_fallback_families = settings.type_heading_font.fallback_families
@@ -176,11 +165,7 @@
       assign type_accent_font_family = 'Lexend'
       assign type_accent_font_fallback_families = 'serif'
       assign type_accent_font_style = 'normal'
-      if settings.type_accent_font_custom == 'lexend-light'
-        assign type_accent_font_weight = 300
-      else
-        assign type_accent_font_weight = 600
-      endif
+      assign type_accent_font_weight = settings.type_accent_font_custom
     else
       assign type_accent_font_family = settings.type_accent_font.family
       assign type_accent_font_fallback_families = settings.type_accent_font.fallback_families

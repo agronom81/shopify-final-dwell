@@ -371,15 +371,19 @@
         "label": "t:options.body",
         "options": [
           {
-            "value": "lexend-light",
+            "value": "300",
             "label": "Lexend Light"
           },
           {
-            "value": "lexend-semibold",
+            "value": "400",
+            "label": "Lexend Regular"
+          },
+          {
+            "value": "600",
             "label": "Lexend Semibold"
           }
         ],
-        "default": "lexend-light",
+        "default": "400",
         "info": "Override Shopify font with custom font",
         "visible_if": "{{ settings.use_custom_fonts == true }}"
       },
@@ -396,15 +400,19 @@
         "label": "t:options.subheading",
         "options": [
           {
-            "value": "lexend-light",
+            "value": "300",
             "label": "Lexend Light"
           },
           {
-            "value": "lexend-semibold",
+            "value": "400",
+            "label": "Lexend Regular"
+          },
+          {
+            "value": "600",
             "label": "Lexend Semibold"
           }
         ],
-        "default": "lexend-light",
+        "default": "400",
         "info": "Override Shopify font with custom font",
         "visible_if": "{{ settings.use_custom_fonts == true }}"
       },
@@ -421,15 +429,19 @@
         "label": "t:options.heading",
         "options": [
           {
-            "value": "lexend-light",
+            "value": "300",
             "label": "Lexend Light"
           },
           {
-            "value": "lexend-semibold",
+            "value": "400",
+            "label": "Lexend Regular"
+          },
+          {
+            "value": "600",
             "label": "Lexend Semibold"
           }
         ],
-        "default": "lexend-light",
+        "default": "400",
         "info": "Override Shopify font with custom font",
         "visible_if": "{{ settings.use_custom_fonts == true }}"
       },
@@ -446,15 +458,19 @@
         "label": "t:options.accent",
         "options": [
           {
-            "value": "lexend-light",
+            "value": "300",
             "label": "Lexend Light"
           },
           {
-            "value": "lexend-semibold",
+            "value": "400",
+            "label": "Lexend Regular"
+          },
+          {
+            "value": "600",
             "label": "Lexend Semibold"
           }
         ],
-        "default": "lexend-light",
+        "default": "400",
         "info": "Override Shopify font with custom font",
         "visible_if": "{{ settings.use_custom_fonts == true }}"
       },
