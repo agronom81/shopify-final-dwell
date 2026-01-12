@@ -1,6 +1,8 @@
 {% assign block_settings = block.settings %}
+{% assign color_scheme = block_settings.color_scheme %}
+
 <div
-  class="email-signup-block size-style spacing-style"
+  class="email-signup-block size-style spacing-style {% if block_settings.inherit_color_scheme == false %} color-{{ color_scheme }}{% endif %}"
   style="
     {% render 'size-style', settings: block_settings %}
     {% render 'spacing-style', settings: block_settings %}

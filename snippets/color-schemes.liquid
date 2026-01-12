@@ -96,4 +96,14 @@
     color: var(--color-foreground);
     background-color: var(--color-background);
   }
+
+  {% assign menu_heading_classes = scheme_classes | split: ', ' %}
+  {% for class in menu_heading_classes %}
+    {% unless forloop.first %}
+      {{ class }} .menu__heading{% unless forloop.last %},{% endunless %}
+      {{ class }} .email-signup__heading{% unless forloop.last %},{% endunless %}
+    {% endunless %}
+  {% endfor %} {
+    color: var(--color-foreground-heading);
+  }
 {% endstyle %}
