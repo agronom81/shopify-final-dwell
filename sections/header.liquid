@@ -1,5 +1,3 @@
-
-
 {% liquid
   assign order = 'logo,menu,localization,search,mobile_search,actions'
 
@@ -499,14 +497,14 @@
   }
 
   .header__row--top:not(.divider--page-width),
-  .header__row--top.divider--page-width .header__columns,
+  .header__row--top.divider--page-width,
   .header__row--bottom {
     border-bottom: var(--border-bottom-width) solid var(--color-border);
   }
 
   @media screen and (max-width: 749px) {
     .header__row--top:not(.divider--page-width),
-    .header__row--top.divider--page-width .header__columns {
+    .header__row--top.divider--page-width {
       border-bottom-width: var(--border-bottom-width-mobile);
     }
   }
@@ -688,8 +686,13 @@
   }
 
   .header__columns {
-    --padding-block-start: var(--header-padding);
-    --padding-block-end: var(--header-padding);
+    --padding-block-start: var(--padding-sm);
+    --padding-block-end: var(--padding-sm);
+  }
+
+  .header__row--bottom .header__columns {
+    padding-top: var(--padding-2xl);
+    padding-bottom: var(--padding-2lg);
   }
 
   .header:not(.header--compact) .header__row--bottom {
