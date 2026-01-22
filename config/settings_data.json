@@ -11,7 +11,7 @@
   "current": {
     "logo": "shopify://shop_images/Logo.svg",
     "logo_inverse": "shopify://shop_images/Logo.svg",
-    "logo_height": 36,
+    "logo_height": 52,
     "logo_height_mobile": 28,
     "favicon": "shopify://shop_images/icon.png",
     "use_custom_fonts": true,
