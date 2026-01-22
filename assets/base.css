@@ -2427,7 +2427,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 /* type5 */
 
 .layout-panel-grid--type5 {
-  grid-template-columns: 407px 407px 1fr;
+  grid-template-columns: 425px 433px 1fr;
   grid-template-rows: 407px 407px;
   
   @media screen and (max-width: 990px) {
