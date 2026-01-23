@@ -327,7 +327,25 @@
             "label": "t:settings.hover_borders",
             "default": "#1A1A1A",
             "alpha": true
-          }
+          },
+          {
+            "type": "header",
+            "content": "Footer"
+          },
+          {
+            "type": "color",
+            "id": "copyright_color",
+            "label": "Copyright color",
+            "default": "#737680",
+            "alpha": true
+          },
+          {
+            "type": "color",
+            "id": "social_icon_color",
+            "label": "Social icon color",
+            "default": "#A3A5AD",
+            "alpha": true
+          },
         ],
         "role": {
           "text": "foreground",
@@ -339,7 +357,9 @@
           "primary_button_border": "primary_button_border",
           "secondary_button": "secondary_button_background",
           "on_secondary_button": "secondary_button_text",
-          "secondary_button_border": "secondary_button_border"
+          "secondary_button_border": "secondary_button_border",
+          "copyright": "copyright_color",
+          "social_icons": "social_icon_color"
         }
       }
     ]
