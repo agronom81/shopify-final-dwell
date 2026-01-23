@@ -1,5 +1,10 @@
 <div
   class="social-icons__wrapper footer-utilities__icons"
+  style="{"
+  --social-icon-color:
+  {{ block.settings.color -}}
+  ;
+  }
   {{ block.shopify_attributes }}
 >
   {% liquid
@@ -14,16 +19,16 @@
       if link_url != blank
         # Map setting names to platform names for display and icon purposes
         case link_key
-          when 'facebook_url'
-            assign platform = 'facebook'
           when 'instagram_url'
             assign platform = 'instagram'
+          when 'facebook_url'
+            assign platform = 'facebook'
+          when 'twitter_url'
+            assign platform = 'twitter'
           when 'youtube_url'
             assign platform = 'youtube'
           when 'tiktok_url'
             assign platform = 'tiktok'
-          when 'twitter_url'
-            assign platform = 'twitter'
           when 'threads_url'
             assign platform = 'threads'
           when 'linkedin_url'
@@ -67,6 +72,7 @@
     {% if link_url != blank %}
       <div
         class="social-icons__icon-wrapper{% unless has_profile %} social-icons__icon-wrapper--disabled{% endunless %}"
+        style="--social-icon-color: {{ block.settings.color }};"
       >
         <a
           href="{{ link_url }}"
@@ -123,6 +129,7 @@
     flex-shrink: 0;
     width: var(--icon-size-lg);
     height: var(--icon-size-lg);
+    color: var(--social-icon-color);
   }
 
   .social-icons__icon {
@@ -130,7 +137,7 @@
   }
 
   .social-icons__icon-wrapper:has(.social-icons__icon path) {
-    width: var(--icon-size-sm);
+    width: var(--icon-size-lg);
 
     .social-icons__icon {
       display: block;
@@ -157,6 +164,13 @@
   "name": "t:names.social_media_links",
   "tag": null,
   "settings": [
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Social icon color",
+      "default": "#A3A5AD",
+      "alpha": true
+    },
     {
       "type": "url",
       "id": "facebook_url",
