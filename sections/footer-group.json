@@ -62,7 +62,7 @@
               "settings": {
                 "menu": "footer-main",
                 "heading": "MAIN",
-                "menu_spacing": 24,
+                "menu_spacing": 23,
                 "show_as_accordion": false,
                 "accordion_icon": "caret",
                 "accordion_dividers": false,
@@ -135,7 +135,7 @@
               "settings": {
                 "menu": "footer-phones",
                 "heading": "PHONES",
-                "menu_spacing": 24,
+                "menu_spacing": 23,
                 "show_as_accordion": false,
                 "accordion_icon": "caret",
                 "accordion_dividers": false,
@@ -208,7 +208,7 @@
               "settings": {
                 "menu": "footer-smart-home",
                 "heading": "SMART HOME",
-                "menu_spacing": 24,
+                "menu_spacing": 23,
                 "show_as_accordion": false,
                 "accordion_icon": "caret",
                 "accordion_dividers": false,
@@ -319,7 +319,7 @@
       ],
       "settings": {
         "section_width": "page-width",
-        "gap": 12,
+        "gap": 31,
         "color_scheme": "scheme-1",
         "toggle_overlay": true,
         "overlay_color": "#f8f9fa",
@@ -336,9 +336,10 @@
           "type": "footer-copyright",
           "name": "t:names.copyright",
           "settings": {
-            "show_powered_by": true,
+            "show_powered_by": false,
             "font_size": "1rem",
-            "case": "none"
+            "case": "none",
+            "color": "#737680"
           },
           "blocks": {}
         },
@@ -365,10 +366,11 @@
         "social_links_LPJepq": {
           "type": "social-links",
           "settings": {
+            "color": "#a3a5ad",
             "facebook_url": "https://www.facebook.com",
             "instagram_url": "https://www.instagram.com",
             "youtube_url": "https://www.youtube.com",
-            "tiktok_url": "https://www.tiktok.com",
+            "tiktok_url": "",
             "twitter_url": "https://www.twitter.com",
             "threads_url": "",
             "linkedin_url": "",
