@@ -481,6 +481,22 @@
     }
   }
 
+  /* .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__submenu {
+    opacity: 1;
+    top: 67px;
+    z-index: 100;
+    background: aqua;
+    visibility: visible;
+    width: auto;
+    left: auto;
+    transition: none;
+    clip-path: none;
+  } */
+
+  /* .overflow-menu::after {
+    display: none;
+  } */
+
   .header-menu[data-overflow-expanded='true'] .menu-list__list-item:where([slot='overflow']) .menu-list__link {
     --submenu-content-opacity: 1;
   }
