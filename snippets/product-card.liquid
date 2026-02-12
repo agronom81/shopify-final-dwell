@@ -119,6 +119,39 @@
 {%- endif -%}
 
 {% stylesheet %}
+  .product-card {
+    position: relative;
+  }
+
+  .product-card [class*="product_title"],
+  product-price {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .product-card [class*="product_title"] {
+    bottom: 45px;
+  }
+
+  .product-card:hover [class*="product_title"],
+  .product-card:hover product-price  {
+    opacity: 1;
+  }
+
+  .product-card [class*="product_title"] p,
+  [data-block-id*="price"] .price {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
   product-card-link,
   :not(product-card-link) product-card {
     width: 100%;
