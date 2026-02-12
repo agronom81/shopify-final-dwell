@@ -101,6 +101,11 @@
             ref="menuitem"
           >
             <span class="menu-list__link-title">{{- link.title -}}</span>
+            {%- if link.links != blank -%}
+              <span class="menu-list__link-icon svg-wrapper icon-small-down">
+                {{- 'icon-caret.svg' | inline_asset_content -}}
+              </span>
+            {%- endif -%}
           </a>
           {%- if link.links != blank -%}
             <div class="menu-list__submenu{{ color_scheme_classes }}" ref="submenu[]">
@@ -299,6 +304,7 @@
     display: flex;
     min-height: var(--minimum-touch-target);
     align-items: center;
+    gap: 4px;
 
     &:hover,
     &:focus {
@@ -310,23 +316,33 @@
     }
   }
 
-  /*
-      High specificity selectors to subdue non-hovered links without javascript.
-      If the need for js-generated `hovered` and `focused` classes arises for another reason we can simplify these.
-    */
-  .menu-list:where(:has(.menu-list__list-item:hover)),
-  .menu-list:where(:has(.menu-list__list-item:focus-within)),
-  .menu-list:where(:has(.menu-list__list-item:not([aria-hidden='true']) .menu-list__link--active)) {
-    .menu-list__link {
-      color: rgb(var(--menu-top-level-font-color-rgb) / var(--opacity-subdued-text));
-    }
+  .menu-list__link-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    transform: rotate(180deg);
+    transition: transform var(--animation-speed) var(--animation-easing);
+    margin-inline-start: 4px;
+  }
+
+  .menu-list__link-icon svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+  }
+
+  .menu-list__link[aria-expanded='true'] .menu-list__link-icon {
+    transform: rotate(0deg);
   }
 
   /* stylelint-disable-next-line selector-max-specificity */
   .menu-list:not(:has(.menu-list__list-item:hover)) .menu-list__link--active,
   .menu-list .menu-list__list-item:where(:hover, :focus-within) .menu-list__link,
   .menu-list .menu-list__list-item[slot='overflow'] .menu-list__link[aria-expanded='true'] {
-    color: var(--menu-top-level-font-color);
+    color: var(--color-primary-hover);
   }
 
   .overflow-menu::part(list) {
@@ -518,7 +534,7 @@
     transition: color var(--animation-speed) var(--animation-easing);
 
     &:hover {
-      color: var(--menu-child-active-font-color);
+      color: var(--color-primary-hover);
     }
   }
 
@@ -532,7 +548,7 @@
     color: var(--menu-parent-font-color);
 
     &:hover {
-      color: var(--menu-parent-active-font-color);
+      color: var(--color-primary-hover);
     }
   }
 
