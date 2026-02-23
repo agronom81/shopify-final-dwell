@@ -31,6 +31,7 @@
 {% capture image_border_style %}
   --ratio: {{ ratio }};
   {% render 'border-override', settings: block_settings %}
+  {{- block_settings.custom_css -}}
 {% endcapture %}
 
 {% liquid
@@ -282,6 +283,11 @@
       "step": 1,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "textarea",
+      "id": "custom_css",
+      "label": "Custom CSS"
     },
     {
       "type": "header",
