@@ -65,7 +65,7 @@
   >
 {%- endif -%}
 <product-card
-  class="product-card"
+  class="product-card product-card-relative"
   data-product-id="{{ product.id }}"
   id="product-card-{{ block.id }}"
   data-product-transition="{{ settings.transition_to_main_product }}"
@@ -111,7 +111,7 @@
       {% if block_settings.padding-block-end > 0 %}--zoom-out-padding-block-end: min(var(--padding-xs), {{ block_settings.padding-block-end | times: 0.7}}px);{% endif %}
     "
   >
-    {{ children }}
+    <div class="children-wrapper">{{ children }}</div>
   </div>
 </product-card>
 {%- if settings.transition_to_main_product -%}
@@ -119,7 +119,7 @@
 {%- endif -%}
 
 {% stylesheet %}
-  .product-card {
+  .product-card, .children-wrapper {
     position: relative;
   }
 
