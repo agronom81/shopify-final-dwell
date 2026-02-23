@@ -1,6 +1,27 @@
 {% liquid
   assign products_to_show = section.settings.products_to_show
   assign collection_products = section.settings.collection.products
+  assign heading_output = section.settings.heading
+
+  if heading_output != blank and section.settings.enable_heading_word_color
+    assign heading_highlight_words = section.settings.heading_highlight_words | split: ','
+
+    for word in heading_highlight_words
+      assign clean_word = word | strip
+
+      if clean_word != blank
+        capture replacement
+          echo '<span class="splide-collection-slider__heading-accent" style="--splide-heading-accent: '
+          echo section.settings.heading_highlight_color
+          echo ';">'
+          echo clean_word
+          echo '</span>'
+        endcapture
+
+        assign heading_output = heading_output | replace: clean_word, replacement
+      endif
+    endfor
+  endif
 %}
 
 {% javascript %}
@@ -196,7 +217,7 @@
 >
   {% if section.settings.heading != blank %}
     <div class="splide-collection-slider__header">
-      <h2 class="h2">{{ section.settings.heading }}</h2>
+      <h2 class="h2">{{ heading_output }}</h2>
     </div>
   {% endif %}
 
@@ -277,6 +298,10 @@
 
   .splide-collection-slider__header {
     margin-bottom: var(--gap-lg);
+  }
+
+  .splide-collection-slider__heading-accent {
+    color: var(--splide-heading-accent);
   }
 
   .splide-collection-slider .splide-products {
@@ -422,6 +447,26 @@
       "id": "heading",
       "label": "Heading",
       "default": "Popular on the Google Store"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_heading_word_color",
+      "label": "Enable word color",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight_words",
+      "label": "Words to color",
+      "info": "Comma-separated words, e.g. TPD,Store",
+      "visible_if": "{{ section.settings.enable_heading_word_color }}"
+    },
+    {
+      "type": "color",
+      "id": "heading_highlight_color",
+      "label": "Word color",
+      "default": "#1967d2",
+      "visible_if": "{{ section.settings.enable_heading_word_color }}"
     },
     {
       "type": "collection",
