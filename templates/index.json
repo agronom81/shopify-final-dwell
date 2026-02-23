@@ -1130,7 +1130,7 @@
                 "border_opacity": 100,
                 "border_radius": 0,
                 "toggle_overlay": true,
-                "overlay_color": "#f7f0e798",
+                "overlay_color": "#f7f0e799",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
                 "link": "",
@@ -1758,6 +1758,29 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 100,
         "padding-block-end": 100
+      }
+    },
+    "splide_collection_slider_KDMi6y": {
+      "type": "splide-collection-slider",
+      "name": "Splide collection slider",
+      "settings": {
+        "heading": "Popular on the TPD Store",
+        "collection": "popular",
+        "products_to_show": 16,
+        "slides_per_desktop": 4,
+        "slides_per_mobile": 2,
+        "slide_height": 360,
+        "slide_gap": 16,
+        "show_arrows": true,
+        "show_pagination": false,
+        "autoplay": false,
+        "autoplay_interval": 4,
+        "section_width": "page-width",
+        "color_scheme": "",
+        "padding-block-start": 36,
+        "padding-block-end": 36,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
       }
     },
     "section_jbxDGN": {
@@ -2510,6 +2533,7 @@
     "section_Q7MMtj",
     "section_DLa8tL",
     "product_list_x6BjwP",
+    "splide_collection_slider_KDMi6y",
     "section_jbxDGN",
     "section_d9rdFN"
   ]
