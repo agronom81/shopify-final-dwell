@@ -1,8 +1,8 @@
 {% liquid
-  assign order = 'logo,menu,localization,search,mobile_search,actions'
+  assign order = 'logo,menu,localization,search,mobile_search,social_links,actions'
 
   if shop.customer_accounts_enabled
-    assign order = 'mobile_search,logo,menu,localization,search,actions'
+    assign order = 'mobile_search,logo,menu,localization,search,social_links,actions'
   endif
 
   assign rows = 'top,bottom' | split: ','
@@ -61,6 +61,70 @@
     render 'header-actions'
   endcapture
 
+  assign has_social_links = false
+  if section.settings.social_facebook_url != blank
+    assign has_social_links = true
+  elsif section.settings.social_instagram_url != blank
+    assign has_social_links = true
+  elsif section.settings.social_youtube_url != blank
+    assign has_social_links = true
+  elsif section.settings.social_twitter_url != blank
+    assign has_social_links = true
+  elsif section.settings.social_pinterest_url != blank
+    assign has_social_links = true
+  endif
+
+  capture social_links
+    if has_social_links
+      echo '<div class="header-social-links mobile:hidden" style="--social-icon-color: '
+      echo section.settings.social_links_color
+      echo ';">'
+      echo '<div class="social-icons__wrapper">'
+
+      if section.settings.social_facebook_url != blank
+        echo '<div class="social-icons__icon-wrapper"><a href="'
+        echo section.settings.social_facebook_url
+        echo '" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-icons__icon-label">Facebook</span><svg class="social-icons__icon icon-default" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">'
+        render 'icon', icon: 'facebook'
+        echo '</svg></a></div>'
+      endif
+
+      if section.settings.social_instagram_url != blank
+        echo '<div class="social-icons__icon-wrapper"><a href="'
+        echo section.settings.social_instagram_url
+        echo '" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-icons__icon-label">Instagram</span><svg class="social-icons__icon icon-default" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">'
+        render 'icon', icon: 'instagram'
+        echo '</svg></a></div>'
+      endif
+
+      if section.settings.social_youtube_url != blank
+        echo '<div class="social-icons__icon-wrapper"><a href="'
+        echo section.settings.social_youtube_url
+        echo '" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><span class="social-icons__icon-label">YouTube</span><svg class="social-icons__icon icon-default" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">'
+        render 'icon', icon: 'youtube'
+        echo '</svg></a></div>'
+      endif
+
+      if section.settings.social_twitter_url != blank
+        echo '<div class="social-icons__icon-wrapper"><a href="'
+        echo section.settings.social_twitter_url
+        echo '" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><span class="social-icons__icon-label">Twitter</span><svg class="social-icons__icon icon-default" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">'
+        render 'icon', icon: 'twitter'
+        echo '</svg></a></div>'
+      endif
+
+      if section.settings.social_pinterest_url != blank
+        echo '<div class="social-icons__icon-wrapper"><a href="'
+        echo section.settings.social_pinterest_url
+        echo '" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><span class="social-icons__icon-label">Pinterest</span><svg class="social-icons__icon icon-default" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">'
+        render 'icon', icon: 'pinterest'
+        echo '</svg></a></div>'
+      endif
+
+      echo '</div></div>'
+    endif
+  endcapture
+
   if shop.customer_accounts_enabled
     assign search_class = 'mobile:hidden'
   endif
@@ -69,23 +133,23 @@
   if section.settings.localization_position == 'left'
     if section.settings.search_position == 'left'
       if shop.customer_accounts_enabled
-        assign order = 'mobile_search,logo,search,localization,menu,actions'
+        assign order = 'mobile_search,logo,search,localization,menu,social_links,actions'
       else
-        assign order = 'logo,search,localization,menu,mobile_search,actions'
+        assign order = 'logo,search,localization,menu,mobile_search,social_links,actions'
       endif
     else
       if shop.customer_accounts_enabled
-        assign order = 'mobile_search,logo,localization,menu,search,actions'
+        assign order = 'mobile_search,logo,localization,menu,search,social_links,actions'
       else
-        assign order = 'logo,localization,menu,search,mobile_search,actions'
+        assign order = 'logo,localization,menu,search,mobile_search,social_links,actions'
       endif
     endif
   else
     if section.settings.search_position == 'left'
       if shop.customer_accounts_enabled
-        assign order = 'mobile_search,logo,search,menu,localization,actions'
+        assign order = 'mobile_search,logo,search,menu,localization,social_links,actions'
       else
-        assign order = 'logo,search,menu,localization,mobile_search,actions'
+        assign order = 'logo,search,menu,localization,mobile_search,social_links,actions'
       endif
     endif
   endif
@@ -136,6 +200,12 @@
     endif
   endif
 
+  if social_links != blank
+    if section.settings.social_links_row == 'bottom'
+      assign bottom_row_blocks = bottom_row_blocks | append: 'social_links,'
+    endif
+  endif
+
   assign bottom_row_blocks = bottom_row_blocks | split: ',' | compact
 
   if section.settings.section_height == 'compact'
@@ -179,7 +249,7 @@
         show_language: show_language,
         localization_style: 'dropdown',
         form_style: form_style,
-        block_id: block.id
+        block_id: section.id
       %}
     </div>
   {% elsif show_country %}
@@ -252,7 +322,7 @@
           show_language: show_language,
           localization_style: 'dropdown',
           form_style: form_style,
-          block_id: block.id
+          block_id: section.id
         %}
       </div>
     </dropdown-localization-component>
@@ -328,6 +398,7 @@
         logo: logo,
         menu: menu,
         actions: actions,
+        social_links: social_links,
         localization: localization_markup,
         search: search,
         mobile_search: mobile_search
@@ -552,6 +623,38 @@
     .overflow-menu::part(list) {
       justify-content: flex-end;
     }
+  }
+
+  .header-social-links {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-social-links .social-icons__wrapper {
+    display: flex;
+    gap: var(--gap-xs);
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+
+  .header-social-links .social-icons__icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--icon-size-lg);
+    height: var(--icon-size-lg);
+  }
+
+  .header-social-links .social-icons__icon {
+    display: block;
+    flex-shrink: 0;
+    width: var(--icon-size-lg);
+    height: var(--icon-size-lg);
+    color: var(--social-icon-color, currentColor);
+  }
+
+  .header-social-links .social-icons__icon-label {
+    display: none;
   }
 
   .header__columns {
@@ -883,6 +986,78 @@
     {
       "type": "header",
       "content": "t:content.localization"
+    },
+    {
+      "type": "header",
+      "content": "Social media"
+    },
+    {
+      "type": "select",
+      "id": "social_links_position",
+      "label": "t:settings.position",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:options.left"
+        },
+        {
+          "value": "center",
+          "label": "t:options.center"
+        },
+        {
+          "value": "right",
+          "label": "t:options.right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "social_links_row",
+      "label": "t:settings.row",
+      "options": [
+        {
+          "value": "top",
+          "label": "t:options.top"
+        },
+        {
+          "value": "bottom",
+          "label": "t:options.bottom"
+        }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "color",
+      "id": "social_links_color",
+      "label": "Social icon color",
+      "default": "#A3A5AD",
+      "alpha": true
+    },
+    {
+      "type": "url",
+      "id": "social_facebook_url",
+      "label": "t:options.facebook"
+    },
+    {
+      "type": "url",
+      "id": "social_instagram_url",
+      "label": "t:options.instagram"
+    },
+    {
+      "type": "url",
+      "id": "social_youtube_url",
+      "label": "t:options.youtube"
+    },
+    {
+      "type": "url",
+      "id": "social_twitter_url",
+      "label": "t:options.twitter"
+    },
+    {
+      "type": "url",
+      "id": "social_pinterest_url",
+      "label": "t:options.pinterest"
     },
     {
       "type": "checkbox",
