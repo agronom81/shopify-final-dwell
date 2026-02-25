@@ -1594,7 +1594,7 @@
         "slides_per_desktop": 4,
         "slides_per_mobile": 2,
         "slide_height": 360,
-        "slide_gap": 16,
+        "slide_gap": 32,
         "show_arrows": true,
         "show_pagination": false,
         "autoplay": false,

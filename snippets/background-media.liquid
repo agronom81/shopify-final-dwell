@@ -71,6 +71,9 @@
           assign sizes = '100vw'
         else
           case settings.page_width
+            when 'small-width'
+              # Narrow: max 76rem (1216px)
+              assign sizes = '(min-width: 1116px) 1116px, 100vw'
             when 'narrow'
               # Narrow: max 76rem (1216px)
               assign sizes = '(min-width: 1216px) 1216px, 100vw'
