@@ -97,7 +97,8 @@
     @media screen and (min-width: 750px) {
       --slideshow-control-offset: calc((var(--button-size) - var(--icon-size-xs)) / 2);
 
-      .section--page-width &.slideshow-control--previous {
+      .section--page-width &.slideshow-control--previous,
+      .section--small-width &.slideshow-control--previous {
         transform: translateX(var(--slideshow-control-offset));
       }
     }

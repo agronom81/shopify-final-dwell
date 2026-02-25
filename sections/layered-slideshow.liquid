@@ -25,7 +25,7 @@
       class="layered-slideshow__container"
       ref="container"
       size="{{ section.settings.height }}"
-      style="--corner-radius: {% if section.settings.section_width == 'page-width' %}{{ section.settings.corner_radius | divided_by: 16.0 }}{% else %}0{% endif %}; --total-tabs: {{ section.blocks.size }}; --border-width: {{ section.settings.border_width }}px"
+      style="--corner-radius: {% if section.settings.section_width != 'full-width' %}{{ section.settings.corner_radius | divided_by: 16.0 }}{% else %}0{% endif %}; --total-tabs: {{ section.blocks.size }}; --border-width: {{ section.settings.border_width }}px"
     >
       <div
         class="layered-slideshow__tablist"
@@ -389,7 +389,7 @@
       "step": 4,
       "unit": "px",
       "default": 0,
-      "visible_if": "{{ section.settings.section_width == 'page-width' }}"
+      "visible_if": "{{ section.settings.section_width != 'full-width' }}"
     },
     {
       "type": "range",

@@ -54,7 +54,7 @@
   endif
 
   assign rounded_slide_corners = false
-  if section.settings.display_mode == 'full_frame' and section.settings.section_width == 'page-width'
+  if section.settings.display_mode == 'full_frame' and section.settings.section_width != 'full-width'
     assign rounded_slide_corners = true
   elsif section.settings.display_mode == 'with_hints' and section.settings.full_frame_on_mobile == false
     assign rounded_slide_corners = true
@@ -241,7 +241,7 @@
       "step": 1,
       "unit": "px",
       "default": 0,
-      "visible_if": "{{ section.settings.display_mode == 'with_hints' or section.settings.display_mode == 'full_frame' and section.settings.section_width == 'page-width' }}"
+      "visible_if": "{{ section.settings.display_mode == 'with_hints' or section.settings.display_mode == 'full_frame' and section.settings.section_width != 'full-width' }}"
     },
     {
       "type": "select",

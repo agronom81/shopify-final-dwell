@@ -95,7 +95,8 @@
       position: relative;
     }
 
-    .section--page-width .cart-page:has(.cart__container--extend) {
+    .section--page-width .cart-page:has(.cart__container--extend),
+    .section--small-width .cart-page:has(.cart__container--extend) {
       grid-column: 2 / 4;
       grid-template-columns: 1fr minmax(
           var(--sidebar-width),

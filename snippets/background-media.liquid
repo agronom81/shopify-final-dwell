@@ -70,10 +70,15 @@
         if section.settings.section_width == 'full-width'
           assign sizes = '100vw'
         else
-          case settings.page_width
-            when 'small-width'
-              # Narrow: max 76rem (1216px)
-              assign sizes = '(min-width: 1116px) 1116px, 100vw'
+          assign constrained_page_width = settings.page_width
+          if section.settings.section_width == 'small-width'
+            assign constrained_page_width = 'small'
+          endif
+
+          case constrained_page_width
+            when 'small'
+              # Small: max 63rem (1008px)
+              assign sizes = '(min-width: 1008px) 1008px, 100vw'
             when 'narrow'
               # Narrow: max 76rem (1216px)
               assign sizes = '(min-width: 1216px) 1216px, 100vw'
