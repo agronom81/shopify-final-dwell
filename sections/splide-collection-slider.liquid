@@ -365,15 +365,23 @@
     pointer-events: none;
     opacity: var(--splide-meta-opacity);
     transition: opacity 0.2s ease;
+    color: rgb(var(--color-foreground-rgb) / 1);
   }
 
   .splide-product-card__title {
     margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.4;
+    letter-spacing: 0;
   }
 
   .splide-product-card__price {
     margin: var(--gap-3xs) 0 0;
-    color: rgb(var(--color-foreground-rgb) / var(--opacity-subdued-text));
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.49;
+    letter-spacing: 0;
   }
 
   .splide-product-card:hover,
@@ -396,6 +404,7 @@
     transform: translateY(-50%);
     background-color: var(--color-primary-button-background);
     color: var(--color-primary-button-text);
+    transition: all 0.2s ease;
   }
 
   .splide-collection-slider .splide__arrow svg {
