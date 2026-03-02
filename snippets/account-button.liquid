@@ -36,12 +36,11 @@
       {{- initial -}}
     </span>
   {%- else -%}
-    <span
-      class="account-button__icon"
+    <i
+      class="icon-user"
       aria-hidden="true"
     >
-      {{- 'icon-account.svg' | inline_asset_content -}}
-    </span>
+    </i>
   {%- endif -%}
 </{{ tag }}>
 
@@ -88,5 +87,13 @@
   /* The shop avatar doesn't bubble the click event up to our button, so we need to prevent that or the button doesn't work */
   .account-button shop-user-avatar {
     pointer-events: none;
+  }
+
+  .account-button:hover {
+    color: var(--color-primary-hover);
+  }
+
+  .icon-user {
+    font-size: 20px;
   }
 {% endstylesheet %}

@@ -12,12 +12,11 @@
     "
     data-testid="cart-icon"
   >
-    <span
-      class="svg-wrapper"
+    <i
+      class="icon-cart"
       aria-hidden="true"
     >
-      {{ 'icon-cart.svg' | inline_asset_content }}
-    </span>
+    </i>
 
     {% render 'cart-bubble', limit: 100, live_region: true, test_id: test_id %}
   </cart-icon>
@@ -92,7 +91,7 @@
       {% endif %}
     >
       <button
-        class="button header-actions__action button-unstyled"
+        class="button header-actions__action cart-button-action button-unstyled"
         on:click="/open"
         aria-haspopup="dialog"
         aria-label="{{ 'accessibility.cart' | t }}"
@@ -665,5 +664,21 @@
       --cart-bubble-top: 4px;
       --cart-bubble-right: 4px;
     }
+  }
+
+  .header-actions__cart-icon {
+    width: var(--button-size);
+    height: var(--button-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-actions__cart-icon:hover {
+    color: var(--color-primary-hover);
+  }
+
+  .icon-cart {
+    font-size: 20px;
   }
 {% endstylesheet %}
