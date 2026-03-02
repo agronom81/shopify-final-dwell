@@ -83,6 +83,7 @@
 
     const getOptions = (element) => {
       const desktop = getNumber(element.dataset.perPageDesktop, 4);
+      const tablet = getNumber(element.dataset.perPageTablet, desktop);
       const mobile = getNumber(element.dataset.perPageMobile, 1);
       const height = getNumber(element.dataset.slideHeight, 460);
       const gap = getNumber(element.dataset.slideGap, 16);
@@ -103,7 +104,12 @@
         speed: 450,
         rewind: false,
         breakpoints: {
-          749: {
+          1024: {
+            perPage: tablet,
+            height: `${height}px`,
+            gap: `${gap}px`,
+          },
+          767: {
             perPage: mobile,
             height: `${height}px`,
             gap: `${gap}px`,
@@ -171,6 +177,7 @@
     document.querySelectorAll(SPLIDE_SELECTOR).forEach((element) => {
       if (!element.__splideInstance && window.Splide) {
         const desktop = Number(element.dataset.perPageDesktop || 4);
+        const tablet = Number(element.dataset.perPageTablet || desktop);
         const mobile = Number(element.dataset.perPageMobile || 1);
         const height = Number(element.dataset.slideHeight || 460);
         const gap = Number(element.dataset.slideGap || 16);
@@ -191,7 +198,12 @@
           speed: 450,
           rewind: false,
           breakpoints: {
-            749: {
+            1024: {
+              perPage: tablet,
+              height: `${height}px`,
+              gap: `${gap}px`,
+            },
+            767: {
               perPage: mobile,
               height: `${height}px`,
               gap: `${gap}px`,
@@ -226,6 +238,7 @@
     data-splide-collection-slider
     data-section-id="{{ section.id }}"
     data-per-page-desktop="{{ section.settings.slides_per_desktop }}"
+    data-per-page-tablet="{{ section.settings.slides_per_tablet }}"
     data-per-page-mobile="{{ section.settings.slides_per_mobile }}"
     data-slide-height="{{ section.settings.slide_height }}"
     data-slide-gap="{{ section.settings.slide_gap }}"
@@ -508,6 +521,15 @@
       "max": 6,
       "step": 1,
       "default": 4
+    },
+    {
+      "type": "range",
+      "id": "slides_per_tablet",
+      "label": "Slides per tablet",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
     },
     {
       "type": "range",
