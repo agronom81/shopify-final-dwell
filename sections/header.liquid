@@ -61,68 +61,92 @@
     render 'header-actions'
   endcapture
 
-  assign has_social_links = false
-  if section.settings.social_facebook_url != blank
-    assign has_social_links = true
-  elsif section.settings.social_instagram_url != blank
-    assign has_social_links = true
-  elsif section.settings.social_youtube_url != blank
-    assign has_social_links = true
-  elsif section.settings.social_twitter_url != blank
-    assign has_social_links = true
-  elsif section.settings.social_pinterest_url != blank
-    assign has_social_links = true
-  endif
+  assign social_links_data = 'facebook_url,instagram_url,youtube_url,tiktok_url,twitter_url,threads_url,linkedin_url,bluesky_url,snapchat_url,pinterest_url,tumblr_url,vimeo_url' | split: ','
 
   capture social_links
-    if has_social_links
       echo '<div class="header-social-links mobile:hidden" style="--social-icon-color: '
       echo section.settings.social_links_color
       echo ';">'
       echo '<div class="social-icons__wrapper">'
 
-      if section.settings.social_facebook_url != blank
-        echo '<div class="social-icons__icon-wrapper"><a href="'
-        echo section.settings.social_facebook_url
-        echo '" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><span class="social-icons__icon-label">Facebook</span><svg class="social-icons__icon icon-default" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">'
-        render 'icon', icon: 'facebook'
-        echo '</svg></a></div>'
-      endif
+      for link_key in social_links_data
+        assign link_url = section.settings[link_key]
+        assign render_icon = true
 
-      if section.settings.social_instagram_url != blank
-        echo '<div class="social-icons__icon-wrapper"><a href="'
-        echo section.settings.social_instagram_url
-        echo '" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="social-icons__icon-label">Instagram</span><svg class="social-icons__icon icon-default" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">'
-        render 'icon', icon: 'instagram'
-        echo '</svg></a></div>'
-      endif
+        if link_url != blank
+          case link_key
+            when 'instagram_url'
+              assign platform = 'instagram'
+            when 'facebook_url'
+              assign platform = 'facebook'
+            when 'twitter_url'
+              assign platform = 'twitter'
+            when 'youtube_url'
+              assign platform = 'youtube'
+            when 'tiktok_url'
+              assign platform = 'tiktok'
+            when 'threads_url'
+              assign platform = 'threads'
+            when 'linkedin_url'
+              assign platform = 'linkedin'
+            when 'bluesky_url'
+              assign platform = 'bluesky'
+            when 'snapchat_url'
+              assign platform = 'snapchat'
+            when 'pinterest_url'
+              assign platform = 'pinterest'
+            when 'tumblr_url'
+              assign platform = 'tumblr'
+            when 'vimeo_url'
+              assign platform = 'vimeo'
+          endcase
 
-      if section.settings.social_youtube_url != blank
-        echo '<div class="social-icons__icon-wrapper"><a href="'
-        echo section.settings.social_youtube_url
-        echo '" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><span class="social-icons__icon-label">YouTube</span><svg class="social-icons__icon icon-default" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">'
-        render 'icon', icon: 'youtube'
-        echo '</svg></a></div>'
-      endif
+          assign url_parts = link_url | split: '//' | last | split: '/'
+          assign has_profile = false
 
-      if section.settings.social_twitter_url != blank
-        echo '<div class="social-icons__icon-wrapper"><a href="'
-        echo section.settings.social_twitter_url
-        echo '" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><span class="social-icons__icon-label">Twitter</span><svg class="social-icons__icon icon-default" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">'
-        render 'icon', icon: 'twitter'
-        echo '</svg></a></div>'
-      endif
+          if url_parts.size > 1 and url_parts[1] != ''
+            assign has_profile = true
+          endif
 
-      if section.settings.social_pinterest_url != blank
-        echo '<div class="social-icons__icon-wrapper"><a href="'
-        echo section.settings.social_pinterest_url
-        echo '" target="_blank" rel="noopener noreferrer" aria-label="Pinterest"><span class="social-icons__icon-label">Pinterest</span><svg class="social-icons__icon icon-default" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">'
-        render 'icon', icon: 'pinterest'
-        echo '</svg></a></div>'
-      endif
+          unless render_icon
+            assign has_profile = true
+          endunless
+
+          echo '<div class="social-icons__icon-wrapper'
+          unless has_profile
+            echo ' social-icons__icon-wrapper--disabled'
+          endunless
+          echo '" style="--social-icon-color: '
+          echo section.settings.social_links_color
+          echo ';">'
+
+          echo '<a href="'
+          echo link_url
+          echo '" target="_blank" rel="noopener noreferrer" aria-label="'
+          echo platform | capitalize
+          echo '"'
+
+          unless has_profile
+            if request.design_mode
+              echo ' onclick="return false;" aria-disabled="true"'
+            endif
+          endunless
+
+          echo '><span class="social-icons__icon-label">'
+          echo platform | capitalize
+          echo '</span>'
+
+          if render_icon
+            echo '<svg class="social-icons__icon icon-default" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">'
+            render 'icon', icon: platform
+            echo '</svg>'
+          endif
+
+          echo '</a></div>'
+        endif
+      endfor
 
       echo '</div></div>'
-    endif
   endcapture
 
   if shop.customer_accounts_enabled
