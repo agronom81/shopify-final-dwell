@@ -16,7 +16,11 @@
       {{ block_settings.heading | escape }}
     </div>
   {% endif %}
-  {%- form 'customer', class: 'email-signup__form spacing-style' %}
+  <form
+    action="{{ block_settings.form_action | default: 'https://gmail.us1.list-manage.com/subscribe/post?u=7248546a9dd7afda197e1564e&id=00fada631d&f_id=006f3ee1f0' | escape }}"
+    method="post"
+    class="email-signup__form spacing-style"
+  >
     <div
       class="
         email-signup__input-group
@@ -113,7 +117,7 @@
         <p class="email-signup__message-text">{{ 'blocks.email_signup.success' | t }}</p>
       </div>
     {%- endif -%}
-  {% endform %}
+  </form>
 </div>
 
 {% stylesheet %}
@@ -402,6 +406,12 @@
     {
       "type": "paragraph",
       "content": "t:content.email_signups_create_customer_profiles"
+    },
+    {
+      "type": "text",
+      "id": "form_action",
+      "label": "Form action URL",
+      "default": "https://gmail.us1.list-manage.com/subscribe/post?u=7248546a9dd7afda197e1564e&id=00fada631d&f_id=006f3ee1f0"
     },
     {
       "type": "select",
