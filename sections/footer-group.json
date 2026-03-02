@@ -279,6 +279,8 @@
               "type": "email-signup",
               "name": "t:names.email_signup",
               "settings": {
+                "form_action": "https://gmail.us1.list-manage.com/subscribe/post?u=7248546a9dd7afda197e1564e&id=00fada631d&f_id=006f3ee1f0",
+                "input_name": "b_7248546a9dd7afda197e1564e_00fada631d",
                 "width": "fill",
                 "custom_width": 100,
                 "inherit_color_scheme": false,
