@@ -49,7 +49,7 @@
         id="EmailInput-{{ block.id }}"
         class="email-signup__input email-signup__input--{{ block_settings.border_style }} {{ block_settings.input_type_preset }} {{ block_settings.border_variation }}"
         type="email"
-        name="contact[email]"
+        name="{{ block_settings.input_name | default: 'contact[email]' | escape }}"
         autocorrect="off"
         autocapitalize="off"
         autocomplete="email"
@@ -411,7 +411,13 @@
       "type": "text",
       "id": "form_action",
       "label": "Form action URL",
-      "default": "https://gmail.us1.list-manage.com/subscribe/post?u=7248546a9dd7afda197e1564e&id=00fada631d&f_id=006f3ee1f0"
+      "default": ""
+    },
+    {
+      "type": "text",
+      "id": "input_name",
+      "label": "Input name",
+      "default": "contact[email]"
     },
     {
       "type": "select",
