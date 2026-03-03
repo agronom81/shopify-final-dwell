@@ -62,6 +62,7 @@
   endcapture
 
   assign social_links_data = 'facebook_url,instagram_url,youtube_url,tiktok_url,twitter_url,threads_url,linkedin_url,bluesky_url,snapchat_url,pinterest_url,tumblr_url,vimeo_url' | split: ','
+  assign social_icons = 'facebook_url,instagram_url,youtube_url,twitter_url,pinterest_url' | split: ','
 
   capture social_links
       echo '<div class="header-social-links mobile:hidden" style="--social-icon-color: '
@@ -132,11 +133,9 @@
             endif
           endunless
 
-          echo '><span class="social-icons__icon-label">'
-          echo platform | capitalize
-          echo '</span>'
-
-          if render_icon
+          if social_icons contains link_key
+            echo '<i class="fontello-icon icon-' | append: platform | append: '"></i>'
+          elsif render_icon
             echo '<svg class="social-icons__icon icon-default" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">'
             render 'icon', icon: platform
             echo '</svg>'
@@ -656,7 +655,7 @@
 
   .header-social-links .social-icons__wrapper {
     display: flex;
-    gap: var(--gap-xs);
+    gap: 0.7rem;
     flex-wrap: nowrap;
     justify-content: flex-end;
   }
@@ -771,7 +770,6 @@
     .header__column:has(.dropdown-localization__button:hover),
     .header__column:has(.header__icon--menu:hover) {
       header-menu:not(:hover),
-      .header-actions__action:not(:hover),
       .dropdown-localization__button:not(:hover),
       .header__icon--menu:not(:hover) {
         opacity: var(--opacity-subdued-text);

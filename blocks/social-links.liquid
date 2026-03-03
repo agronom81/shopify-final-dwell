@@ -9,6 +9,7 @@
 >
   {% liquid
     assign social_links = 'facebook_url,instagram_url,youtube_url,tiktok_url,twitter_url,threads_url,linkedin_url,bluesky_url,snapchat_url,pinterest_url,tumblr_url,vimeo_url,custom_url' | split: ','
+    assign social_icons = 'facebook_url,instagram_url,youtube_url,twitter_url,pinterest_url' | split: ','
   %}
 
   {% for link_key in social_links %}
@@ -86,8 +87,11 @@
             {% endif %}
           {% endunless %}
         >
-          <span class="social-icons__icon-label">{{ platform | capitalize }}</span>
-          {% if render_icon %}
+          
+          {% if social_icons contains link_key %}
+            <i class="fontello-icon icon-{{ platform }}"></i>
+          {% elsif render_icon %}
+            <span class="social-icons__icon-label">{{ platform | capitalize }}</span>
             <svg
               class="social-icons__icon icon-default"
               aria-hidden="true"
@@ -107,7 +111,7 @@
 {% stylesheet %}
   .social-icons__wrapper {
     display: flex;
-    gap: var(--gap-sm);
+    gap: 0.5rem;
     flex-wrap: wrap;
     justify-content: center;
 
@@ -132,11 +136,8 @@
     color: var(--social-icon-color);
   }
 
-  .social-icons__icon {
-    display: none;
-  }
-
-  .social-icons__icon:hover {
+  .social-icons__icon:hover,
+  .fontello-icon:hover {
     color: var(--color-primary-hover);
   }
 
